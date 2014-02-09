@@ -9,8 +9,15 @@ app.get('/', function(req, res) {
   res.send('Hello World!');
 });
 
-var port = Number(process.env.PORT || 5000);
+var ipaddress = process.env.OPENSHIFT_NODEJS_IP;
+var port = Number(process.env.OPENSHIFT_NODEJS_PORT || 5000);
 
-app.listen(port, function() {
-  console.log("Listening on " + port);
+if (typeof ipaddress === "undefined") {
+
+  console.warn('No OPENSHIFT_NODEJS_IP var, using 127.0.0.1');
+  ipaddress = "127.0.0.1";
+}
+
+app.listen(port, ipaddress, function() {
+  console.log("Listening on " + ipaddress + ":" + port);
 });
