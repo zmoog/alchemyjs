@@ -4,6 +4,7 @@
   "description": "Simple personal financial-accounting web application.",
   "main": "web.js",
   "scripts": {
+    "postinstall": "bower install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Maurizio Branca <maurizio.branca@gmail.com>",
