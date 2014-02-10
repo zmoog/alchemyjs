@@ -4,7 +4,6 @@
   "description": "Simple personal financial-accounting web application.",
   "main": "web.js",
   "scripts": {
-    // "postinstall": "HOME=$OPENSHIFT_REPO_DIR ./node_modules/bower/bin/bower install --config.directory=public/components",
     "postinstall": "./node_modules/bower/bin/bower install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
