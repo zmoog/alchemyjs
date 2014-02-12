@@ -1,18 +1,13 @@
-var config = {
-    local: {
-        mode: 'local',
-        port: 3000
-    },
-    staging: {
-        mode: 'staging',
-        port: 4000
-    },
-    production: {
-        mode: 'production',
-        port: 5000
-    }
-};
 
-module.exports = function(mode) {
-    return config[mode || process.argv[2] || 'local'] || config.local;
-};
+var ipaddress = process.env.OPENSHIFT_NODEJS_IP;
+var port = Number(process.env.OPENSHIFT_NODEJS_PORT || 5000);
+
+if (typeof ipaddress === "undefined") {
+  console.warn('No OPENSHIFT_NODEJS_IP var, using 127.0.0.1');
+  ipaddress = "127.0.0.1";
+}
+
+module.exports = {
+    ipaddress: ipaddress,
+    port: port
+}
