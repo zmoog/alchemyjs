@@ -75,8 +75,11 @@ passport.deserializeUser(function(obj, done) {
 //   credentials (in this case, an OpenID identifier and profile), and invoke a
 //   callback with a user object.
 passport.use(new GoogleStrategy({
-    returnURL: 'http://alchemyjs-zmoog.rhcloud.com/auth/google/return',
-    realm: 'http://alchemyjs-zmoog.rhcloud.com/'
+    // returnURL: 'http://alchemyjs-zmoog.rhcloud.com/auth/google/return',
+    // realm: 'http://alchemyjs-zmoog.rhcloud.com/'
+    returnURL: config.baseurl + '/auth/google/return',
+    realm: config.baseurl + '/'
+
   },
   function(identifier, profile, done) {
     // asynchronous verification, for effect...
