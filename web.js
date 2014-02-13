@@ -5,6 +5,7 @@
 var express = require('express');
 var routes = require('./routes');
 var about = require('./routes/about');
+var home = require('./routes/home');
 var account = require('./routes/account');
 var analytics = require('./routes/analytics');
 var hashtag = require('./routes/hashtag');
@@ -160,7 +161,7 @@ app.get('/auth/google',
 app.get('/auth/google/return', 
   passport.authenticate('google', { failureRedirect: '/login' }),
   function(req, res) {
-    res.redirect('/');
+    res.redirect('/u/');
   });
 
 app.get('/logout', function(req, res){
@@ -193,6 +194,7 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/about', about.detail);
+app.get('/u', ensureAuthenticated, home.detail);
 app.get('/project/:id/account', ensureAuthenticated, account.list);
 app.get('/project/:id/analytics', ensureAuthenticated, analytics.list);
 app.get('/project/:id/hashtag', ensureAuthenticated, hashtag.list);
