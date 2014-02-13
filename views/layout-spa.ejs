@@ -8,15 +8,37 @@
   </head>
   <body>
   
-    <div id="layout"></div>  
+    <div id="layout" class="container">
+      
+      <div id="navbar"></div>
+
+      <div id="content">Loading, please wait...</div>
+
+      <div id="footer"></div>
+
+    </div>
 
     <script>
+      <% if (user) { %>
       var $ALCHEMY_USER = {
+        authenticated: true,
         displayName: '<%= user.displayName %>',
         email: '<%= user.emails[0].value %>'
       };
+      <% } else { %>
+      var $ALCHEMY_USER = {
+        authenticated: false,
+        displayName: 'anonymous',
+        email: ''
+      };
+      <% }  %>
     </script>
-    <script data-main="/js/app.js" src="/components/requirejs/require.js"></script>
-    
+    <script src="/components/requirejs/require.js"></script>
+
+    <!-- 
+      This must contains the script to init page specific application logic. 
+    -->
+    <%-body -%>
+
   </body>
 </html>

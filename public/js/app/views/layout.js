@@ -35,6 +35,13 @@ define(['backbone',
 
 	return Backbone.View.extend({
 
+		initialize: function () {
+
+			Backbone.on('project:open', function (projectId) {
+				console.log('selected project ' + projectId);
+			});
+		},
+
 		renderNavbar: function () {
 			this.$el.find('#navbar').html(navbarView.render().el);
 		},
@@ -45,7 +52,7 @@ define(['backbone',
 
 		render: function () {
 
-			this.$el.html(template());
+			//this.$el.html(template());
 
 			// this.$el('#navbar').html(navbarView.render().el);
 			this.renderNavbar();

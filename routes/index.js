@@ -5,7 +5,7 @@
 
 exports.index = function(req, res) {
 
-	console.log('req.user', req.user);
+	// console.log('req.user', req.user);
 
-  	res.render('index', { title: 'Alchemy', user: req.user });
+  	res.render('index', { title: 'Alchemy'});
 };

@@ -5,17 +5,24 @@ define(['backbone', 'app/views/layout'], function (Backbone, LayoutView) {
 
 	var layoutView = new LayoutView({el: '#layout'});
 
+
 	return Backbone.Router.extend({
 
 		routes: {
 			'': 'home',
-			'home': 'home'
+			'project/:id': 'project'
 		},
 
 		home: function () {
 			// console.log('routing home');
 
 			layoutView.render();
+			
+		},
+
+		project: function (projectId) {
+
+			Backbone.trigger('project:open', projectId);
 		}
 
 	});

@@ -1,3 +1,11 @@
-<% layout('layout-spa') -%>
+    <% layout('layout-spa') -%>
 
-home
+    <script>
+      
+      require(['/js/app/config/common.js'], function (common) {
+
+        require(['app/config/home']);
+
+      });
+
+    </script>
