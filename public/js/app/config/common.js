@@ -17,7 +17,7 @@ requirejs.config({
 
         'app': '/js/app',
 
-        'backbone': 'backbone/backbone-min',
+        'backbone': 'backbone/backbone',
         'bootstrap': 'bootstrap/dist/js/bootstrap.min',
         'handlebars': 'handlebars/handlebars.min',
         'jquery': 'jquery/jquery.min',
