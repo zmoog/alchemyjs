@@ -7,6 +7,7 @@ define(['backbone', 'handlebars', 'text!app/tpl/projectlistitem.html'], function
     return Backbone.View.extend({
 
         tagName: 'li',
+        className: 'list-group-item',
 
         render: function () {
 
