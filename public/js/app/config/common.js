@@ -20,7 +20,7 @@ requirejs.config({
         'backbone': 'backbone/backbone',
         'bootstrap': 'bootstrap/dist/js/bootstrap.min',
         'handlebars': 'handlebars/handlebars.min',
-        'jquery': 'jquery/jquery.min',
+        'jquery': 'jquery/dist/jquery.min',
         'text': 'requirejs-text/text',
         'underscore': 'underscore/underscore'
     },
