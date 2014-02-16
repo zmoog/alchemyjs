@@ -23,6 +23,8 @@ var logfmt = require("logfmt");
 var config = require('./config');
 
 
+var apiProject = require('./routes/api/project');
+
 // Custom middleware
 
 var userinfo = function(req, res, next) {
@@ -204,6 +206,11 @@ app.get('/project/:id', ensureAuthenticated, projects.detail);
 app.get('/project/:id/transfer', ensureAuthenticated, transfer.list);
 app.get('/users', ensureAuthenticated, user.list);
 
+// API
+
+// app.get('/api/v1/project', ensureAuthenticated, apiProject.list);
+app.get('/api/v1/project', ensureAuthenticated, apiProject.list);
+app.get('/api/v1/project/:id', ensureAuthenticated, apiProject.detail);
 
 
 app.listen(config.port, config.ipaddress, function() {

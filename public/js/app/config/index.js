@@ -6,8 +6,6 @@ require(['bootstrap', 'backbone', 'app/routers/index'], function (Bootstrap, Bac
 
   var router = new IndexRouter();
 
-  // console.log('router', router);
-
   Backbone.history.start();
 
 });

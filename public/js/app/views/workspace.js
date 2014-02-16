@@ -1,14 +1,34 @@
-define(['backbone', 'handlebars', 'text!app/tpl/workspace.html'], function(Backbone, Handlebars, html) {
+define([
+    'backbone', 
+    'handlebars', 
+    'app/collections/project', 
+    'app/views/projectlist', 
+    'text!app/tpl/workspace.html'], function(Backbone, Handlebars, ProjectCollection, ProjectListView, html) {
 
-	var template = Handlebars.compile(html);
+    var template = Handlebars.compile(html);
 
-	return Backbone.View.extend({
+    return Backbone.View.extend({
 
-		render: function () {
+        initialize: function () {
+            this.projectCollection = new ProjectCollection();
+        },
 
-			this.$el.html(template(this.model));
+        render: function () {
 
-			return this;
-		}
-	});
+            this.$el.html(template());
+
+            // console.log(this.projectCollection);
+
+
+            var projectListView = new ProjectListView({
+                collection: this.projectCollection,
+                el: this.$('#projectlist')
+            });
+
+            //projectListView.render(this.$('#projectlist').el);
+            this.projectCollection.fetch();
+
+            return this;
+        }
+    });
 });

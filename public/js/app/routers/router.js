@@ -1,10 +1,7 @@
 define(['backbone', 'app/views/layout'], function (Backbone, LayoutView) {
 	'use strict';
 
-	// console.log('starting router');
-
 	var layoutView = new LayoutView({el: '#layout'});
-
 
 	return Backbone.Router.extend({
 
@@ -14,14 +11,10 @@ define(['backbone', 'app/views/layout'], function (Backbone, LayoutView) {
 		},
 
 		home: function () {
-			// console.log('routing home');
-
 			layoutView.render();
-			
 		},
 
 		project: function (projectId) {
-
 			Backbone.trigger('project:open', projectId);
 		}
 
