@@ -6,18 +6,15 @@ define(['backbone', 'underscore', 'app/views/projectlistitem'], function(Backbon
 
 		initialize: function () {
 			// this.collection.on("reset", this.render, this);
-
-			console.log('collection', this.collection);
-
+			// console.log('collection', this.collection);
 			// this.listenTo(this.collection, 'sync', function() {console.log('event occurred')});
-
 			this.listenTo(this.collection, 'sync', this.render);
 		},
 
 		render: function () {
 
-			console.log('rendering collection', this.collection);
-			console.log('rendering collection models', this.collection.models);
+			// console.log('rendering collection', this.collection);
+			// console.log('rendering collection models', this.collection.models);
 
 			this.$el.empty();
 
@@ -25,16 +22,16 @@ define(['backbone', 'underscore', 'app/views/projectlistitem'], function(Backbon
 
 			_.each(this.collection.models, function (project) {
 
-				console.log('rendering model with name ', project.get('name'));
+				// console.log('rendering model with name ', project.get('name'));
 
 				var view = new ProjectListItem({model: project});
 
-				console.log('view', view);
-				console.log('el', self.$el);
+				// console.log('view', view);
+				// console.log('el', self.$el);
 
 				var el = view.render().el;
 
-				console.log('el', el);
+				// console.log('el', el);
 
 				self.$el.append(el);
 			});

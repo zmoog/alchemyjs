@@ -9,23 +9,27 @@ define([
 
     return Backbone.View.extend({
 
+        events: {
+            'click #reloadproject': 'reloadproject'
+        },
+
         initialize: function () {
             this.projectCollection = new ProjectCollection();
+        },
+
+        reloadproject: function () {
+            this.projectCollection.fetch();
         },
 
         render: function () {
 
             this.$el.html(template());
 
-            // console.log(this.projectCollection);
-
-
             var projectListView = new ProjectListView({
                 collection: this.projectCollection,
                 el: this.$('#projectlist')
             });
 
-            //projectListView.render(this.$('#projectlist').el);
             this.projectCollection.fetch();
 
             return this;

@@ -1,21 +1,21 @@
 define(['backbone', 'app/views/navbar', 'app/views/landing'], function(Backbone, NavbarView, LandingView) {
 
-	// var template = Handlebars.compile(html);
+    // var template = Handlebars.compile(html);
 
-	var navbarView = new NavbarView({model: {navs: []}});
-	var landingView = new LandingView();
+    var navbarView = new NavbarView({model: {navs: []}});
+    var landingView = new LandingView();
 
-	return Backbone.View.extend({
+    return Backbone.View.extend({
 
-		render: function () {
+        render: function () {
 
-			// this.$el.html(template());
+            // this.$el.html(template());
 
-			this.$('#navbar').html(navbarView.render().el);
+            this.$('#navbar').html(navbarView.render().el);
 
-			this.$('#content').html(landingView.render().el);
+            this.$('#content').html(landingView.render().el);
 
-			return this;
-		}
-	});
+            return this;
+        }
+    });
 });

@@ -13,9 +13,9 @@ define(['backbone', 'handlebars', 'text!app/tpl/projectlistitem.html'], function
 
             var attributes = this.model.attributes;
 
-            //console.log('attributes', this.model.attributes;)
-            console.log('model', attributes);
-            console.log('attributes', attributes);
+            // console.log('attributes', this.model.attributes;)
+            // console.log('model', attributes);
+            // console.log('attributes', attributes);
 
             this.$el.html(template(this.model.attributes));
 
